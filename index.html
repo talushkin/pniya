@@ -1,340 +1,349 @@
+```html
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>פנייה דחופה למועצת קריית טבעון - עצרו את תוכנית כצנלסון</title>
+    <title>עצרו את תוכנית כצנלסון - קריית טבעון</title>
 
-<meta name="description" content="התמיכה בתוכנית כצנלסון משנה את אופי וצביונו של היישוב בניגוד לתוכנית המתאר.">
+    <meta name="description"
+        content="פנייה דחופה לחברי מועצת קריית טבעון לעצור את תוכנית כצנלסון ולשמור על צביון היישוב.">
 
-<meta property="og:title" content="פנייה דחופה למועצת קריית טבעון - עצרו את תוכנית כצנלסון">
-<meta property="og:description" content="התמיכה בתוכנית כצנלסון משנה את אופי וצביונו של היישוב בניגוד לתוכנית המתאר.">
-<meta property="og:image" content="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/caza.jpg">
-<meta property="og:type" content="website">
+    <meta property="og:title"
+        content="עצרו את תוכנית כצנלסון - קריית טבעון">
 
-<style>
+    <meta property="og:description"
+        content="הצטרפו למאבק להצלת צביון קריית טבעון ולעצירת תוכנית כצנלסון.">
 
-body{
-    font-family:Arial,sans-serif;
-    line-height:1.7;
-    color:#333;
-    max-width:900px;
-    margin:0 auto;
-    padding:20px;
-    background:#f7f7f7;
-}
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/caza.jpg">
 
-.container{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
+    <meta property="og:type" content="website">
 
-.user-inputs{
-    background:#f8f9fa;
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:8px;
-    margin-bottom:20px;
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
+    <style>
 
-.input-group{
-    flex:1;
-    min-width:220px;
-    display:flex;
-    flex-direction:column;
-}
+        body{
+            font-family:Arial,sans-serif;
+            line-height:1.7;
+            color:#333;
+            max-width:1000px;
+            margin:0 auto;
+            padding:20px;
+            background:#f4f4f4;
+        }
 
-.input-group label{
-    margin-bottom:5px;
-    font-weight:bold;
-}
+        .container{
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.08);
+        }
 
-.input-group input{
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:5px;
-    font-size:1em;
-}
+        .petition-top{
+            background:#fff3cd;
+            border:2px solid #ffe08a;
+            padding:18px;
+            border-radius:10px;
+            text-align:center;
+            margin-bottom:25px;
+        }
 
-.send-all-btn{
-    width:100%;
-    border:none;
-    background:#d9534f;
-    color:white;
-    padding:14px;
-    font-size:1.05em;
-    font-weight:bold;
-    border-radius:6px;
-    cursor:pointer;
-    transition:0.2s;
-}
+        .petition-top a{
+            display:inline-block;
+            margin-top:10px;
+            background:#d9534f;
+            color:white;
+            text-decoration:none;
+            padding:12px 24px;
+            border-radius:6px;
+            font-weight:bold;
+        }
 
-.send-all-btn:hover{
-    opacity:0.9;
-}
+        .user-inputs{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
+            margin-bottom:15px;
+        }
 
-.main-image{
-    width:100%;
-    border-radius:8px;
-    margin-bottom:20px;
-}
+        .input-group{
+            flex:1;
+            min-width:220px;
+            display:flex;
+            flex-direction:column;
+        }
 
-h2{
-    color:#d9534f;
-    border-bottom:2px solid #d9534f;
-    padding-bottom:10px;
-}
+        .input-group label{
+            margin-bottom:5px;
+            font-weight:bold;
+        }
 
-.quote{
-    background:#f0f7f4;
-    border-right:5px solid #2e7d32;
-    padding:15px;
-    margin:20px 0;
-    font-style:italic;
-    border-radius:6px;
-}
+        .input-group input{
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:6px;
+            font-size:1em;
+        }
 
-.links-section{
-    background:#f5f5f5;
-    padding:15px;
-    border-radius:6px;
-    margin:20px 0;
-}
+        .send-all-btn{
+            width:100%;
+            background:#d9534f;
+            color:white;
+            border:none;
+            padding:15px;
+            border-radius:6px;
+            font-size:1.1em;
+            font-weight:bold;
+            cursor:pointer;
+            margin-bottom:25px;
+        }
 
-.links-section a{
-    color:#1976d2;
-    text-decoration:none;
-}
+        .send-all-btn:hover{
+            opacity:0.9;
+        }
 
-.links-section a:hover{
-    text-decoration:underline;
-}
+        .main-image{
+            width:100%;
+            border-radius:10px;
+            margin-bottom:25px;
+        }
 
-.contact-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
+        h2{
+            color:#d9534f;
+            border-bottom:2px solid #d9534f;
+            padding-bottom:10px;
+        }
 
-.contact-table th,
-.contact-table td{
-    padding:12px;
-    border-bottom:1px solid #eee;
-    text-align:right;
-}
+        .quote{
+            background:#f0f7f4;
+            border-right:5px solid #2e7d32;
+            padding:18px;
+            border-radius:8px;
+            margin:20px 0;
+            font-style:italic;
+            font-size:1.1em;
+        }
 
-.contact-table th{
-    background:#f1f3f5;
-}
+        .links-section{
+            background:#f8f9fa;
+            padding:15px;
+            border-radius:8px;
+            margin:20px 0;
+        }
 
-.contact-name{
-    font-weight:bold;
-}
+        .links-section a{
+            color:#1976d2;
+            text-decoration:none;
+        }
 
-.green-badge{
-    color:#2e7d32;
-    font-weight:bold;
-}
+        .links-section a:hover{
+            text-decoration:underline;
+        }
 
-.action-btn{
-    display:inline-block;
-    padding:7px 12px;
-    border-radius:5px;
-    text-decoration:none;
-    color:white;
-    margin:2px;
-    font-size:0.9em;
-    font-weight:bold;
-}
+        .contact-table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
 
-.btn-whatsapp{
-    background:#25D366;
-}
+        .contact-table th,
+        .contact-table td{
+            padding:12px;
+            border-bottom:1px solid #eee;
+            text-align:right;
+        }
 
-.btn-email{
-    background:#1976d2;
-}
+        .contact-table th{
+            background:#f1f3f5;
+        }
 
-.petition-box{
-    background:#fff3cd;
-    border:1px solid #ffeeba;
-    color:#856404;
-    padding:20px;
-    text-align:center;
-    border-radius:8px;
-    margin-top:30px;
-    font-weight:bold;
-}
+        .contact-name{
+            font-weight:bold;
+        }
 
-.petition-box a{
-    color:#856404;
-}
+        .green-badge{
+            color:#2e7d32;
+            font-weight:bold;
+        }
 
-.member-card{
-    background:white;
-    border:1px solid #ddd;
-    padding:14px;
-    border-radius:8px;
-    margin-bottom:10px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+        .action-btn{
+            display:inline-block;
+            padding:8px 14px;
+            border-radius:6px;
+            text-decoration:none;
+            color:white;
+            font-weight:bold;
+            font-size:0.9em;
+        }
 
-.member-card strong{
-    display:block;
-}
+        .btn-whatsapp{
+            background:#25D366;
+        }
 
-.wa-personal-btn{
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    padding:10px 16px;
-    border-radius:20px;
-    font-weight:bold;
-}
+        .btn-email{
+            background:#1976d2;
+        }
 
-@media(max-width:700px){
+        @media(max-width:700px){
 
-    .member-card{
-        flex-direction:column;
-        gap:10px;
-        align-items:flex-start;
-    }
+            .contact-table{
+                font-size:0.9em;
+            }
 
-}
+            .action-btn{
+                display:block;
+                margin-bottom:5px;
+                text-align:center;
+            }
 
-</style>
+        }
+
+    </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="user-inputs">
+    <!-- PETITION -->
+    <div class="petition-top">
 
-    <div class="input-group">
-        <label for="fullName">שם מלא:</label>
-        <input type="text" id="fullName" placeholder="תושב/ת מודאג/ת" oninput="updateLinks()">
+        <h2 style="margin-top:0;">
+            📝 חתמו על העצומה להצלת טבעון
+        </h2>
+
+        <div>
+            ככל שיותר תושבים יפנו ויחתמו - כך יגדל הלחץ הציבורי לעצירת תוכנית כצנלסון.
+        </div>
+
+        <a href="https://atzuma.co.il/savetivon" target="_blank">
+            savetivon - לחצו לחתימה על העצומה
+        </a>
+
     </div>
 
-    <div class="input-group">
-        <label for="idNumber">תעודת זהות / מספר מזהה:</label>
-        <input type="text" id="idNumber" placeholder="לא חובה" oninput="updateLinks()">
+    <!-- INPUTS -->
+    <div class="user-inputs">
+
+        <div class="input-group">
+            <label for="fullName">שם מלא:</label>
+            <input type="text"
+                   id="fullName"
+                   placeholder="תושב/ת מודאג/ת"
+                   oninput="updateLinks()">
+        </div>
+
+        <div class="input-group">
+            <label for="idNumber">תעודת זהות / מזהה:</label>
+            <input type="text"
+                   id="idNumber"
+                   placeholder="לא חובה"
+                   oninput="updateLinks()">
+        </div>
+
     </div>
 
-</div>
+    <!-- SEND ALL -->
+    <button class="send-all-btn"
+            onclick="sendAllEmails()">
 
-<button class="send-all-btn" onclick="sendAllEmails()">
-📧 שלח מייל לכל חברי המועצה
-</button>
+        📧 שלח מייל לכל חברי המועצה
 
-<br><br>
+    </button>
 
-<a href="https://www.facebook.com/share/1GPQpVM1TT/" target="_blank">
-<img
-src="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/caza.jpg"
-class="main-image"
-alt="תוכנית כצנלסון">
-</a>
+    <!-- IMAGE -->
+    <a href="https://www.facebook.com/share/1GPQpVM1TT/"
+       target="_blank">
 
-<h2>
-פנייה דחופה מתושב/ת בנושא תוכנית כצנלסון
-</h2>
+        <img
+            src="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/caza.jpg"
+            class="main-image"
+            alt="תוכנית כצנלסון">
 
-<p>שלום רב,</p>
+    </a>
 
-<p>
-אני פונה אליכם כתושב/ת קריית טבעון מתוך דאגה עמוקה לעתיד היישוב.
-</p>
+    <!-- CONTENT -->
+    <h2>
+        פנייה דחופה בנושא תוכנית כצנלסון
+    </h2>
 
-<p>
-התמיכה בתוכנית כצנלסון משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
-</p>
+    <p>
+        שלום רב,
+    </p>
 
-<p>
-אבקש מכם לעצור את התוכנית ולפעול בהתאם לרצון התושבים.
-</p>
+    <p>
+        אני פונה אליכם כתושב/ת קריית טבעון מתוך דאגה עמוקה לעתיד היישוב.
+    </p>
 
-<div class="quote">
-"לחדש על בסיס הקיים..."
-</div>
+    <p>
+        התמיכה בתוכנית כצנלסון משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+    </p>
 
-<div class="links-section">
+    <p>
+        אבקש מכם לעצור את התוכנית ולפעול בהתאם לרצון התושבים.
+    </p>
 
-<strong>קישורים רלוונטיים:</strong>
+    <div class="quote">
+        "לחדש על בסיס הקיים..."
+    </div>
 
-<br><br>
+    <!-- LINKS -->
+    <div class="links-section">
 
-🎬
-<a href="https://www.facebook.com/share/v/1Afmb5Ld9Z/" target="_blank">
-צפייה בסרטון
-</a>
+        <strong>קישורים רלוונטיים:</strong>
 
-<br><br>
+        <br><br>
 
-🎬
-<a href="https://www.facebook.com/share/1GPQpVM1TT/" target="_blank">
-שמוליק אבוהב על התוכנית
-</a>
+        🎬
+        <a href="https://www.facebook.com/share/v/1Afmb5Ld9Z/"
+           target="_blank">
 
-</div>
+           צפייה בסרטון
 
-<p>
-בברכה,
-<br>
-<strong id="senderNameDisplay">
-תושב/ת מודאג/ת
-</strong>
-</p>
+        </a>
 
-<hr>
+        <br><br>
 
-<h3>
-פרטי התקשרות ושליחה מהירה:
-</h3>
+        🎬
+        <a href="https://www.facebook.com/share/1GPQpVM1TT/"
+           target="_blank">
 
-<table class="contact-table">
+           שמוליק אבוהב על התוכנית
 
-<thead>
-<tr>
-<th>שם ותפקיד</th>
-<th>פעולות</th>
-</tr>
-</thead>
+        </a>
 
-<tbody id="contactsBody"></tbody>
+    </div>
 
-</table>
+    <p>
+        בברכה,
+        <br>
+        <strong id="senderNameDisplay">
+            תושב/ת מודאג/ת
+        </strong>
+    </p>
 
-<div class="links-section">
+    <hr>
 
-<h3 style="margin-top:0;">
-📱 שליחת WhatsApp אישי
-</h3>
+    <!-- CONTACTS -->
+    <h3>
+        פרטי התקשרות ושליחה מהירה
+    </h3>
 
-<div id="waMembersList"></div>
+    <table class="contact-table">
 
-</div>
+        <thead>
+            <tr>
+                <th>שם ותפקיד</th>
+                <th>WhatsApp</th>
+                <th>Email</th>
+            </tr>
+        </thead>
 
-<div class="petition-box">
+        <tbody id="contactsBody"></tbody>
 
-📝
-אנא הפיצו בקבוצות הרלוונטיות ועודדו תושבים נוספים להצטרף.
-
-<br><br>
-
-<a href="https://atzuma.co.il/savetivon" target="_blank">
-לחצו כאן לחתימה על העצומה
-</a>
-
-</div>
+    </table>
 
 </div>
 
@@ -472,6 +481,7 @@ function buildSignature(){
     }
 
     return signature;
+
 }
 
 function updateLinks(){
@@ -488,9 +498,12 @@ function updateLinks(){
 
     contacts.forEach(c => {
 
-        const tr = document.createElement('tr');
+        const tr =
+            document.createElement('tr');
 
-        const tdInfo = document.createElement('td');
+        // NAME
+        const tdInfo =
+            document.createElement('td');
 
         const greenBadge =
             c.green
@@ -504,104 +517,76 @@ function updateLinks(){
             <small>${c.role}</small>
         `;
 
-        const tdActions =
+        tr.appendChild(tdInfo);
+
+        // WHATSAPP
+        const tdWa =
             document.createElement('td');
 
-        const textMessage = `שלום ${c.name},
+        if(c.phone){
+
+            const waMessage = `שלום ${c.name},
 
 אני פונה אליך כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
 
 אבקש ממך לעצור את התוכנית ולפעול בהתאם לרצון הציבור.
 
-סרטון 1:
-https://www.facebook.com/share/v/1Afmb5Ld9Z/
-
-סרטון 2:
-https://www.facebook.com/share/1GPQpVM1TT/
-
 בברכה,
 ${signature}`;
 
-        const emailSubject =
-            `פנייה דחופה בנושא תוכנית כצנלסון`;
-
-        if(c.phone){
-
             const waLink =
-                `https://wa.me/972${c.phone.substring(1)}?text=${encodeURIComponent(textMessage)}`;
+                `https://wa.me/972${c.phone.substring(1)}?text=${encodeURIComponent(waMessage)}`;
 
-            tdActions.innerHTML += `
+            tdWa.innerHTML = `
                 <a href="${waLink}"
                    target="_blank"
                    class="action-btn btn-whatsapp">
-                    WhatsApp
+
+                   WhatsApp
+
                 </a>
             `;
+
+        } else {
+
+            tdWa.innerHTML =
+                `<span style="color:#999;">אין מספר</span>`;
+
         }
 
-        const mailLink =
-            `mailto:${c.email}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(textMessage)}`;
+        tr.appendChild(tdWa);
 
-        tdActions.innerHTML += `
-            <a href="${mailLink}"
-               class="action-btn btn-email">
-                Email
-            </a>
-        `;
+        // EMAIL
+        const tdEmail =
+            document.createElement('td');
 
-        tr.appendChild(tdInfo);
-        tr.appendChild(tdActions);
+        const emailMessage = `שלום ${c.name},
 
-        tbody.appendChild(tr);
+אני פונה אליך כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
 
-    });
-
-    renderWhatsAppMembers(signature);
-
-}
-
-function renderWhatsAppMembers(signature){
-
-    const container =
-        document.getElementById('waMembersList');
-
-    container.innerHTML = '';
-
-    contacts.forEach(c => {
-
-        if(!c.phone) return;
-
-        const personalMessage = `שלום ${c.name},
-
-אני פונה אליך אישית כתושב/ת קריית טבעון.
-
-אבקש ממך לעצור את תוכנית כצנלסון ולפעול לשמירה על צביון היישוב.
+אבקש ממך לעצור את התוכנית ולפעול בהתאם לרצון הציבור.
 
 בברכה,
 ${signature}`;
 
-        const waLink =
-            `https://wa.me/972${c.phone.substring(1)}?text=${encodeURIComponent(personalMessage)}`;
+        const subject =
+            `פנייה דחופה בנושא תוכנית כצנלסון`;
 
-        const div =
-            document.createElement('div');
+        const mailLink =
+            `mailto:${c.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailMessage)}`;
 
-        div.className = 'member-card';
+        tdEmail.innerHTML = `
+            <a href="${mailLink}"
+               class="action-btn btn-email">
 
-        div.innerHTML = `
-            <div>
-                <strong>${c.name}</strong>
-                <small>${c.role}</small>
-            </div>
+               Email
 
-            <a href="${waLink}"
-               target="_blank"
-               class="wa-personal-btn">
-               WhatsApp אישי
             </a>
         `;
 
-        container.appendChild(div);
+        tr.appendChild(tdEmail);
+
+        tbody.appendChild(tr);
 
     });
 
@@ -609,7 +594,8 @@ ${signature}`;
 
 function sendAllEmails(){
 
-    const signature = buildSignature();
+    const signature =
+        buildSignature();
 
     const allEmails =
         contacts.map(c => c.email).join(',');
@@ -621,13 +607,7 @@ function sendAllEmails(){
 
 אני פונה אליכם כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
 
-אבקש לעצור את התוכנית ולפעול בהתאם לרצון הציבור.
-
-סרטון 1:
-https://www.facebook.com/share/v/1Afmb5Ld9Z/
-
-סרטון 2:
-https://www.facebook.com/share/1GPQpVM1TT/
+אבקש מכם לעצור את התוכנית ולפעול בהתאם לרצון הציבור.
 
 בברכה,
 ${signature}`;
@@ -643,3 +623,4 @@ updateLinks();
 
 </body>
 </html>
+```
