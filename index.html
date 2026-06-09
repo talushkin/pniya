@@ -589,15 +589,29 @@ ${signature}`;
 
         if(c.messenger){
 
-            tdMessenger.innerHTML = `
-                <a href="${c.messenger}"
-                   target="_blank"
-                   class="action-btn btn-messenger">
+            const messengerMessage = `שלום ${c.name},
 
-                   💬 Messenger
+אני פונה אליך כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
 
-                </a>
-            `;
+תוכנית "בינוי-פינוי" זו אינה מנותקת מהנעשה בכצנלסון. התמיכה בתוכנית משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+
+אבקש ממך לעצור את התוכנית, ולפעול בהתאם לרצון התושבים, וליצור הידברות חזקה ועירונית משתפת יותר.
+
+בברכה,
+${signature}`;
+
+            const messengerLink =
+                document.createElement('a');
+
+            messengerLink.href = c.messenger;
+            messengerLink.target = '_blank';
+            messengerLink.className = 'action-btn btn-messenger';
+            messengerLink.innerText = '💬 Messenger';
+            messengerLink.addEventListener('click', () => {
+                copyMessengerText(messengerMessage);
+            });
+
+            tdMessenger.appendChild(messengerLink);
 
         } else {
 
@@ -627,10 +641,11 @@ ${signature}`;
             `פנייה דחופה בנושא תוכנית כצנלסון`;
 
         const mailLink =
-            `mailto:${c.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailMessage)}`;
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(c.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailMessage)}`;
 
         tdEmail.innerHTML = `
             <a href="${mailLink}"
+               target="_blank"
                class="action-btn btn-email">
 
                Email
@@ -668,8 +683,49 @@ function sendAllEmails(){
 בברכה,
 ${signature}`;
 
-    window.location.href =
-        `mailto:${allEmails}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailAllLink =
+        `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(allEmails)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailAllLink, '_blank');
+
+}
+
+function copyMessengerText(text){
+
+    const successMessage =
+        'הטקסט הועתק ללוח. ניתן להדביק אותו במסנג׳ר.';
+
+    if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                alert(successMessage);
+            })
+            .catch(() => {
+                fallbackCopy(text, successMessage);
+            });
+        return;
+    }
+
+    fallbackCopy(text, successMessage);
+
+}
+
+function fallbackCopy(text, successMessage){
+
+    const textarea =
+        document.createElement('textarea');
+
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    alert(successMessage);
 
 }
 
