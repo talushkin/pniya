@@ -254,129 +254,108 @@
     </button>
 
     <!-- IMAGE -->
-    <a href="https://www.facebook.com/share/1GPQpVM1TT/"
-       target="_blank">
+    <button type="button"
+            onclick="openTopImageVideo()"
+            style="
+                width:100%;
+                border:0;
+                padding:0;
+                background:none;
+                cursor:pointer;
+            "
+            aria-label="ניגון סרטון ביוטיוב">
 
         <img
             src="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/caza.jpg"
             class="main-image"
             alt="תוכנית כצנלסון">
 
-    </a>
-<!-- VIDEO / FACEBOOK SECTION -->
-<div style="margin-top:25px; margin-bottom:25px;">
+    </button>
 
-    <div style="
-        background:#f8f9fa;
-        padding:18px;
-        border-radius:10px;
-        border:1px solid #ddd;
-    ">
+    <div id="topImageVideoContainer"
+         style="
+            display:none;
+            margin-top:14px;
+            margin-bottom:24px;
+            position:relative;
+            width:100%;
+            padding-top:56.25%;
+            border-radius:10px;
+            overflow:hidden;
+            background:#000;
+         ">
 
-        <h3 style="
-            margin-top:0;
-            color:#2e7d32;
-        ">
-            🎬 "לחדש על בסיס הקיים..."
-        </h3>
-
-        <p style="margin-bottom:15px;">
-            קחו דקה וחצי להאזין לקול השפוי שמביא שמוליק אבוהב,
-            שהיה ראש מועצת קריית טבעון במשך 15 שנה.
-        </p>
-
-        <!-- CLICKABLE VIDEO IMAGE -->
-        <a href="https://www.facebook.com/share/v/1Afmb5Ld9Z/"
-           target="_blank"
-           style="display:block; position:relative;">
-
-            <img
-                src="https://scontent.ftlv27-1.fna.fbcdn.net/v/t15.5256-10/698396506_1708996400515027_2027326179994217267_n.jpg"
-                alt="וידאו - שמוליק אבוהב על תוכנית כצנלסון"
-                style="
-                    width:100%;
-                    border-radius:10px;
-                    display:block;
-                ">
-
-            <!-- PLAY BUTTON -->
-            <div style="
+        <iframe
+            id="topImageVideoIframe"
+            src=""
+            title="YouTube video player"
+            style="
                 position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%, -50%);
-                width:90px;
-                height:90px;
-                background:rgba(0,0,0,0.7);
-                border-radius:50%;
-                display:flex;
-                align-items:center;
-                justify-content:center;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                border:0;
+            "
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+    <!-- VIDEO / YOUTUBE SECTION -->
+    <div style="margin-top:25px; margin-bottom:25px;">
+
+        <div style="
+            background:#f8f9fa;
+            padding:18px;
+            border-radius:10px;
+            border:1px solid #ddd;
+        ">
+
+            <h3 style="
+                margin-top:0;
+                color:#2e7d32;
+            ">
+                🎬 "לחדש על בסיס הקיים..."
+            </h3>
+
+            <p style="margin-bottom:15px;">
+                קחו דקה וחצי להאזין לקול השפוי שמביא שמוליק אבוהב,
+                שהיה ראש מועצת קריית טבעון במשך 15 שנה.
+            </p>
+
+            <div style="
+                position:relative;
+                width:100%;
+                padding-top:56.25%;
+                border-radius:10px;
+                overflow:hidden;
+                background:#000;
             ">
 
-                <div style="
-                    width:0;
-                    height:0;
-                    border-top:18px solid transparent;
-                    border-bottom:18px solid transparent;
-                    border-left:30px solid white;
-                    margin-right:-6px;
-                "></div>
+                <iframe
+                    src="https://www.youtube.com/embed/JWBAyVd26Ek"
+                    title="YouTube video player"
+                    style="
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        width:100%;
+                        height:100%;
+                        border:0;
+                    "
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
 
             </div>
 
-        </a>
-
-        <div style="
-            text-align:center;
-            margin-top:15px;
-        ">
-
-            <a href="https://www.facebook.com/share/v/1Afmb5Ld9Z/"
-               target="_blank"
-               style="
-                    display:inline-block;
-                    background:#1877f2;
-                    color:white;
-                    text-decoration:none;
-                    padding:12px 22px;
-                    border-radius:6px;
-                    font-weight:bold;
-               ">
-
-               ▶ צפייה בסרטון בפייסבוק
-
-            </a>
-
         </div>
 
     </div>
 
-</div>
-
-        <div style="margin-top:12px;">
-
-            <a href="https://www.facebook.com/share/v/1Afmb5Ld9Z/"
-               target="_blank"
-               style="
-                    display:inline-block;
-                    background:#1877f2;
-                    color:white;
-                    text-decoration:none;
-                    padding:10px 18px;
-                    border-radius:6px;
-                    font-weight:bold;
-               ">
-
-               צפייה בפייסבוק
-
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
     <!-- CONTENT -->
     <h2>
         פנייה דחופה בנושא תוכנית כצנלסון
@@ -410,7 +389,7 @@
         <br><br>
 
         🎬
-        <a href="https://www.facebook.com/share/v/1Afmb5Ld9Z/"
+        <a href="https://youtu.be/xMYK-1-Grew"
            target="_blank">
 
            צפייה בסרטון
@@ -469,110 +448,6 @@ const contacts = [
     role:"ראש המועצה",
     phone:"0502220366",
     email:"r_moaza@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"נאוה סבר",
-    role:"סגנית לראש המועצה",
-    phone:"0545983176",
-    email:"nava.s@tivon.muni.il",
-    green:true
-},
-
-{
-    name:"חן וייסמן",
-    role:"חבר מועצה",
-    phone:"",
-    email:"chen.w@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"אליק אלמוג",
-    role:"חבר מועצה",
-    phone:"0526219614",
-    email:"alik.a@tivon.muni.il",
-    green:true
-},
-
-{
-    name:"טל גת",
-    role:"סגן ראש המועצה",
-    phone:"",
-    email:"tal.g@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"שמוליק שמחון",
-    role:"חבר מועצה",
-    phone:"",
-    email:"shmulik.s@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"אביב עצמון",
-    role:"חבר מועצה",
-    phone:"",
-    email:"aviv.a@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"אלה קהת",
-    role:"חברת מועצה",
-    phone:"0528666432",
-    email:"ella.k@tivon.muni.il",
-    green:true
-},
-
-{
-    name:"נגה אדלר יעקב",
-    role:"חברת מועצה",
-    phone:"",
-    email:"noga.a@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"כרמית דיין",
-    role:"חברת מועצה",
-    phone:"0546722899",
-    email:"carmit.d@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"נועם שמעון",
-    role:"חברת מועצה",
-    phone:"",
-    email:"noam.s@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"בן וולפה",
-    role:"חבר מועצה",
-    phone:"",
-    email:"ben.w@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"שילה ויינברג",
-    role:"חברת מועצה",
-    phone:"",
-    email:"shila.w@tivon.muni.il",
-    green:false
-},
-
-{
-    name:"גל רוזנטל",
-    role:"מבקר המועצה",
-    phone:"",
-    email:"mevaker@tivon.muni.il",
     green:false
 }
 
@@ -727,6 +602,31 @@ ${signature}`;
 
     window.location.href =
         `mailto:${allEmails}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+}
+
+function openTopImageVideo(){
+
+    const videoContainer =
+        document.getElementById('topImageVideoContainer');
+
+    const videoIframe =
+        document.getElementById('topImageVideoIframe');
+
+    videoContainer.style.display = 'block';
+
+    const currentSrc =
+        videoIframe.getAttribute('src');
+
+    if(!currentSrc){
+        videoIframe.src =
+            'https://www.youtube.com/embed/xMYK-1-Grew?autoplay=1&mute=0&rel=0';
+    }
+
+    videoContainer.scrollIntoView({
+        behavior:'smooth',
+        block:'center'
+    });
 
 }
 
