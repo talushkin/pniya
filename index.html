@@ -178,6 +178,13 @@
             font-size:0.9em;
         }
 
+        .disabled-btn,
+        .send-all-btn:disabled{
+            opacity:0.55;
+            cursor:not-allowed;
+            pointer-events:none;
+        }
+
         .btn-whatsapp{
             background:#25D366;
         }
@@ -188,6 +195,48 @@
 
         .btn-messenger{
             background:#0084ff;
+        }
+
+        .counter-badge{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            min-width:20px;
+            height:20px;
+            padding:0 6px;
+            border-radius:999px;
+            background:#0d6efd;
+            color:#fff;
+            font-size:0.75em;
+            font-weight:700;
+            vertical-align:middle;
+            margin-right:6px;
+            box-shadow:0 1px 3px rgba(0,0,0,0.18);
+        }
+
+        .counter-button{
+            position:relative;
+        }
+
+        .counter-button .counter-badge{
+            position:absolute;
+            top:10px;
+            left:10px;
+            margin-right:0;
+        }
+
+        .page-open-counter{
+            margin-top:10px;
+            font-size:0.95em;
+            color:#0d6efd;
+            font-weight:700;
+        }
+
+        .video-play-counter{
+            margin-top:10px;
+            font-size:0.92em;
+            color:#0d6efd;
+            font-weight:700;
         }
 
         @media(max-width:700px){
@@ -222,9 +271,16 @@
             ככל שיותר תושבים יפנו ויחתמו - כך יגדל הלחץ הציבורי לעצירת תוכנית כצנלסון.
         </div>
 
-        <a href="https://atzuma.co.il/savetivon" target="_blank">
+        <a href="https://atzuma.co.il/savetivon"
+           target="_blank"
+           data-counter-id="petition-sign">
             savetivon - לחצו לחתימה על העצומה
         </a>
+
+        <div class="page-open-counter">
+            פתיחות דף:
+            <span id="pageOpenCount">0</span>
+        </div>
 
     </div>
 
@@ -255,19 +311,19 @@
     </h2>
 
     <p>
-        שלום רב,
+        עידו גרינבלום שלום,
     </p>
 
     <p>
-        אני פונה אליכם כתושב/ת קריית טבעון מתוך דאגה עמוקה לעתיד היישוב.
+        אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
     </p>
 
     <p>
-        תוכנית "בינוי-פינוי" זו אינה מנותקת מהנעשה בכצנלסון. התמיכה בתוכנית משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+        התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
     </p>
 
     <p>
-        אבקש מכם לעצור את התוכנית, ולפעול בהתאם לרצון התושבים, וליצור הידברות חזקה ועירונית משתפת יותר.
+        אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
     </p>
 
     <!-- CONTACTS -->
@@ -292,14 +348,19 @@
 
     <!-- SEND ALL -->
     <button class="send-all-btn"
+            data-counter-id="send-all-emails"
             onclick="sendAllEmails()">
 
         📧 שלח מייל לכל חברי המועצה
+        <span class="counter-badge"
+              data-counter-for="send-all-emails">0</span>
 
     </button>
 
     <!-- IMAGE -->
-    <button type="button"
+        <button type="button"
+            class="counter-button"
+            data-counter-id="open-top-video"
             onclick="openTopImageVideo()"
             style="
                 width:100%;
@@ -309,6 +370,9 @@
                 cursor:pointer;
             "
             aria-label="ניגון סרטון ביוטיוב">
+
+                <span class="counter-badge"
+                            data-counter-for="open-top-video">0</span>
 
         <img
             src="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/caza.jpg"
@@ -332,7 +396,7 @@
 
         <iframe
             id="topImageVideoIframe"
-            src="https://www.youtube.com/embed/JWBAyVd26Ek?rel=0"
+            src="https://www.youtube.com/embed/JWBAyVd26Ek?rel=0&enablejsapi=1"
             title="YouTube video player"
             style="
                 position:absolute;
@@ -348,6 +412,13 @@
         </iframe>
 
     </div>
+
+    <div class="video-play-counter">
+        הפעלות סרטון:
+        <span class="counter-badge"
+              data-counter-for="video-play-top">0</span>
+    </div>
+
     <!-- VIDEO / YOUTUBE SECTION -->
     <div style="margin-top:25px; margin-bottom:25px;">
 
@@ -380,7 +451,8 @@
             ">
 
                 <iframe
-                    src="https://www.youtube.com/embed/xMYK-1-Grew"
+                    id="shmulikVideoIframe"
+                    src="https://www.youtube.com/embed/xMYK-1-Grew?rel=0&enablejsapi=1"
                     title="YouTube video player"
                     style="
                         position:absolute;
@@ -395,6 +467,12 @@
                     allowfullscreen>
                 </iframe>
 
+            </div>
+
+            <div class="video-play-counter">
+                הפעלות סרטון:
+                <span class="counter-badge"
+                      data-counter-for="video-play-shmulik">0</span>
             </div>
 
             <div style="
@@ -445,21 +523,27 @@
 
         🎬
         <a href="https://youtu.be/xMYK-1-Grew"
-           target="_blank">
+              target="_blank"
+              data-counter-id="link-watch-video">
 
            צפייה בסרטון
 
         </a>
+          <span class="counter-badge"
+                  data-counter-for="link-watch-video">0</span>
 
         <br><br>
 
         🎬
         <a href="https://www.facebook.com/share/1GPQpVM1TT/"
-           target="_blank">
+              target="_blank"
+              data-counter-id="link-shmulik-facebook">
 
            שמוליק אבוהב על התוכנית
 
         </a>
+          <span class="counter-badge"
+                  data-counter-for="link-shmulik-facebook">0</span>
 
     </div>
 
@@ -489,6 +573,130 @@ const contacts = [
 }
 
 ];
+
+const countersState = {
+    pageOpens:0,
+    buttonClicks:{}
+};
+
+const featureFlags = {
+    whatsappSendEnabled:false,
+    sendAllEmailsEnabled:false
+};
+
+function getButtonCount(counterId){
+
+    return countersState.buttonClicks[counterId] || 0;
+
+}
+
+function renderCounterBadges(){
+
+    const pageOpenCount =
+        document.getElementById('pageOpenCount');
+
+    if(pageOpenCount){
+        pageOpenCount.innerText = countersState.pageOpens;
+    }
+
+    document.querySelectorAll('[data-counter-for]').forEach(badge => {
+
+        const counterId =
+            badge.getAttribute('data-counter-for');
+
+        badge.innerText = getButtonCount(counterId);
+
+    });
+
+}
+
+async function fetchCounters(){
+
+    try{
+
+        const response = await fetch('/api/counters');
+
+        if(!response.ok){
+            return;
+        }
+
+        const serverCounters =
+            await response.json();
+
+        countersState.pageOpens =
+            Number(serverCounters.pageOpens || 0);
+
+        countersState.buttonClicks =
+            serverCounters.buttonClicks || {};
+
+    } catch(err){
+        console.error('Failed to load counters', err);
+    }
+
+}
+
+async function postCounter(path, payload){
+
+    try{
+
+        await fetch(path, {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(payload || {})
+        });
+
+    } catch(err){
+        console.error('Failed to save counter', err);
+    }
+
+}
+
+async function countPageOpen(){
+
+    countersState.pageOpens += 1;
+    renderCounterBadges();
+
+    await postCounter('/api/counters/open');
+
+}
+
+function trackButtonClick(counterId){
+
+    if(!counterId){
+        return;
+    }
+
+    countersState.buttonClicks[counterId] =
+        getButtonCount(counterId) + 1;
+
+    renderCounterBadges();
+
+    postCounter('/api/counters/click', {
+        id:counterId
+    });
+
+}
+
+function setupCounterClicks(){
+
+    document.addEventListener('click', event => {
+
+        const counterElement =
+            event.target.closest('[data-counter-id]');
+
+        if(!counterElement){
+            return;
+        }
+
+        trackButtonClick(
+            counterElement.getAttribute('data-counter-id')
+        );
+
+    });
+
+}
 
 function buildSignature(){
 
@@ -548,15 +756,15 @@ function updateLinks(){
         const tdWa =
             document.createElement('td');
 
-        if(c.phone){
+        if(c.phone && featureFlags.whatsappSendEnabled){
 
-            const waMessage = `שלום ${c.name},
+            const waMessage = `עידו גרינבלום שלום,
 
-אני פונה אליך כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
 
-תוכנית "בינוי-פינוי" זו אינה מנותקת מהנעשה בכצנלסון. התמיכה בתוכנית משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
 
-אבקש ממך לעצור את התוכנית, ולפעול בהתאם לרצון התושבים, וליצור הידברות חזקה ועירונית משתפת יותר.
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
 
 בברכה,
 ${signature}`;
@@ -567,11 +775,26 @@ ${signature}`;
             tdWa.innerHTML = `
                 <a href="${waLink}"
                    target="_blank"
+                         data-counter-id="wa-${c.email}"
                    class="action-btn btn-whatsapp">
 
                    WhatsApp
 
                 </a>
+                     <span class="counter-badge"
+                             data-counter-for="wa-${c.email}">0</span>
+            `;
+
+        } else if(c.phone) {
+
+            tdWa.innerHTML = `
+                <span class="action-btn btn-whatsapp disabled-btn"
+                      aria-disabled="true"
+                      title="שליחת WhatsApp מושבתת כרגע">
+
+                   WhatsApp
+
+                </span>
             `;
 
         } else {
@@ -589,13 +812,13 @@ ${signature}`;
 
         if(c.messenger){
 
-            const messengerMessage = `שלום ${c.name},
+            const messengerMessage = `עידו גרינבלום שלום,
 
-אני פונה אליך כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
 
-תוכנית "בינוי-פינוי" זו אינה מנותקת מהנעשה בכצנלסון. התמיכה בתוכנית משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
 
-אבקש ממך לעצור את התוכנית, ולפעול בהתאם לרצון התושבים, וליצור הידברות חזקה ועירונית משתפת יותר.
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
 
 בברכה,
 ${signature}`;
@@ -605,6 +828,8 @@ ${signature}`;
 
             messengerLink.href = c.messenger;
             messengerLink.target = '_blank';
+            messengerLink.dataset.counterId =
+                `messenger-${c.email}`;
             messengerLink.className = 'action-btn btn-messenger';
             messengerLink.innerText = '💬 Messenger';
             messengerLink.addEventListener('click', () => {
@@ -612,6 +837,16 @@ ${signature}`;
             });
 
             tdMessenger.appendChild(messengerLink);
+
+            const messengerBadge =
+                document.createElement('span');
+
+            messengerBadge.className = 'counter-badge';
+            messengerBadge.dataset.counterFor =
+                `messenger-${c.email}`;
+            messengerBadge.innerText = '0';
+
+            tdMessenger.appendChild(messengerBadge);
 
         } else {
 
@@ -626,16 +861,16 @@ ${signature}`;
         const tdEmail =
             document.createElement('td');
 
-        const emailMessage = `שלום ${c.name},
+        const emailMessage = `עידו גרינבלום שלום,
 
-אני פונה אליך כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
+    אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
 
-    תוכנית "בינוי-פינוי" זו אינה מנותקת מהנעשה בכצנלסון. התמיכה בתוכנית משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+    התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
 
-    אבקש ממך לעצור את התוכנית, ולפעול בהתאם לרצון התושבים, וליצור הידברות חזקה ועירונית משתפת יותר.
+    אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
 
-בברכה,
-${signature}`;
+    בברכה,
+    ${signature}`;
 
         const subject =
             `פנייה דחופה בנושא תוכנית כצנלסון`;
@@ -646,11 +881,14 @@ ${signature}`;
         tdEmail.innerHTML = `
             <a href="${mailLink}"
                target="_blank"
+                    data-counter-id="email-${c.email}"
                class="action-btn btn-email">
 
                Email
 
             </a>
+                <span class="counter-badge"
+                        data-counter-for="email-${c.email}">0</span>
         `;
 
         tr.appendChild(tdEmail);
@@ -659,9 +897,15 @@ ${signature}`;
 
     });
 
+    renderCounterBadges();
+
 }
 
 function sendAllEmails(){
+
+    if(!featureFlags.sendAllEmailsEnabled){
+        return;
+    }
 
     const signature =
         buildSignature();
@@ -672,13 +916,13 @@ function sendAllEmails(){
     const subject =
         `פנייה דחופה בנושא תוכנית כצנלסון`;
 
-    const body = `שלום רב,
+    const body = `עידו גרינבלום שלום,
 
-אני פונה אליכם כתושב/ת קריית טבעון בנושא תוכנית כצנלסון.
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
 
-תוכנית "בינוי-פינוי" זו אינה מנותקת מהנעשה בכצנלסון. התמיכה בתוכנית משנה את אופיו וצביונו של היישוב ופוגעת באמון הציבור.
+התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
 
-אבקש מכם לעצור את התוכנית, ולפעול בהתאם לרצון התושבים, וליצור הידברות חזקה ועירונית משתפת יותר.
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
 
 בברכה,
 ${signature}`;
@@ -754,7 +998,101 @@ function openTopImageVideo(){
 
 }
 
-updateLinks();
+function trackVideoPlay(counterId){
+
+    trackButtonClick(counterId);
+
+}
+
+function initYouTubePlayTracking(){
+
+    if(!window.YT || !window.YT.Player){
+        return;
+    }
+
+    const lastStateByCounter = {};
+
+    const createPlayerTracking = (elementId, counterId) => {
+
+        const iframe = document.getElementById(elementId);
+
+        if(!iframe){
+            return;
+        }
+
+        new YT.Player(elementId, {
+            events:{
+                onStateChange:event => {
+
+                    const isPlaying =
+                        event.data === YT.PlayerState.PLAYING;
+
+                    if(isPlaying && lastStateByCounter[counterId] !== 'playing'){
+                        trackVideoPlay(counterId);
+                    }
+
+                    lastStateByCounter[counterId] =
+                        isPlaying ? 'playing' : 'not-playing';
+
+                }
+            }
+        });
+
+    };
+
+    createPlayerTracking('topImageVideoIframe', 'video-play-top');
+    createPlayerTracking('shmulikVideoIframe', 'video-play-shmulik');
+
+}
+
+function loadYouTubeApi(){
+
+    if(window.YT && window.YT.Player){
+        initYouTubePlayTracking();
+        return;
+    }
+
+    if(document.getElementById('youtubeApiScript')){
+        return;
+    }
+
+    const script = document.createElement('script');
+    script.id = 'youtubeApiScript';
+    script.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(script);
+
+}
+
+window.onYouTubeIframeAPIReady = function(){
+    initYouTubePlayTracking();
+};
+
+async function startApp(){
+
+    const sendAllButton =
+        document.querySelector('.send-all-btn');
+
+    if(sendAllButton && !featureFlags.sendAllEmailsEnabled){
+        sendAllButton.disabled = true;
+        sendAllButton.setAttribute('aria-disabled', 'true');
+        sendAllButton.removeAttribute('data-counter-id');
+        sendAllButton.title = 'שליחת מייל לכל חברי המועצה מושבתת כרגע';
+    }
+
+    setupCounterClicks();
+
+    await fetchCounters();
+    renderCounterBadges();
+
+    await countPageOpen();
+
+    updateLinks();
+
+    loadYouTubeApi();
+
+}
+
+startApp();
 
 </script>
 
