@@ -255,6 +255,102 @@
 
 <div class="container">
 
+    <!-- PETITION -->
+    <div class="petition-top">
+
+        <h2 style="margin-top:0;">
+            📝 חתמו על העצומה להצלת טבעון
+        </h2>
+
+        <div>
+            ככל שיותר תושבים יפנו ויחתמו - כך יגדל הלחץ הציבורי לעצירת תוכנית כצנלסון.
+        </div>
+
+        <a href="https://atzuma.co.il/savetivon"
+           target="_blank"
+           data-counter-id="petition-sign">
+            savetivon - לחצו לחתימה על העצומה
+        </a>
+
+        <div class="page-open-counter">
+            פתיחות דף:
+            <span id="pageOpenCount">0</span>
+        </div>
+
+    </div>
+
+    <!-- INPUTS -->
+    <div class="user-inputs">
+
+        <div class="input-group">
+            <label for="fullName">שם מלא:</label>
+            <input type="text"
+                   id="fullName"
+                   placeholder="תושב/ת מודאג/ת"
+                   oninput="updateLinks()">
+        </div>
+
+        <div class="input-group">
+            <label for="idNumber">תעודת זהות / מזהה:</label>
+            <input type="text"
+                   id="idNumber"
+                   placeholder="לא חובה"
+                   oninput="updateLinks()">
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <h2>
+        פנייה דחופה לראש המועצה בנושא תוכנית כצנלסון
+    </h2>
+
+    <p>
+        עידו גרינבלום שלום,
+    </p>
+
+    <p>
+        אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
+    </p>
+
+    <p>
+        התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
+    </p>
+
+    <p>
+        אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
+    </p>
+
+    <!-- CONTACTS -->
+    <h3>
+        פרטי התקשרות ושליחה מהירה
+    </h3>
+
+    <table class="contact-table">
+
+        <thead>
+            <tr>
+                <th>שם ותפקיד</th>
+                <th>Messenger</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody id="contactsBody"></tbody>
+
+    </table>
+
+    <!-- SEND ALL -->
+    <button class="send-all-btn"
+            data-counter-id="send-all-emails"
+            onclick="sendAllEmails()">
+
+        📧 שלח מייל לכל חברי המועצה
+        <span class="counter-badge"
+              data-counter-for="send-all-emails">0</span>
+
+    </button>
+
     <!-- IMAGE -->
     <button type="button"
             class="counter-button"
@@ -316,102 +412,6 @@
         <span class="counter-badge"
               data-counter-for="video-play-top">0</span>
     </div>
-
-    <!-- PETITION -->
-    <div class="petition-top">
-
-        <h2 style="margin-top:0;">
-            📝 חתמו על העצומה להצלת טבעון
-        </h2>
-
-        <div>
-            ככל שיותר תושבים יפנו ויחתמו - כך יגדל הלחץ הציבורי לעצירת תוכנית כצנלסון.
-        </div>
-
-        <a href="https://atzuma.co.il/savetivon"
-           target="_blank"
-           data-counter-id="petition-sign">
-            savetivon - לחצו לחתימה על העצומה
-        </a>
-
-        <div class="page-open-counter">
-            פתיחות דף:
-            <span id="pageOpenCount">0</span>
-        </div>
-
-    </div>
-
-    <!-- INPUTS -->
-    <div class="user-inputs">
-
-        <div class="input-group">
-            <label for="fullName">שם מלא:</label>
-            <input type="text"
-                   id="fullName"
-                   placeholder="תושב/ת מודאג/ת"
-                   oninput="updateLinks()">
-        </div>
-
-        <div class="input-group">
-            <label for="idNumber">תעודת זהות / מזהה:</label>
-            <input type="text"
-                   id="idNumber"
-                   placeholder="לא חובה"
-                   oninput="updateLinks()">
-        </div>
-
-    </div>
-
-    <!-- CONTENT -->
-    <h2>
-        פנייה דחופה בנושא תוכנית כצנלסון
-    </h2>
-
-    <p>
-        עידו גרינבלום שלום,
-    </p>
-
-    <p>
-        אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
-    </p>
-
-    <p>
-        התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
-    </p>
-
-    <p>
-        אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
-    </p>
-
-    <!-- CONTACTS -->
-    <h3>
-        פרטי התקשרות ושליחה מהירה
-    </h3>
-
-    <table class="contact-table">
-
-        <thead>
-            <tr>
-                <th>שם ותפקיד</th>
-                <th>Messenger</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-
-        <tbody id="contactsBody"></tbody>
-
-    </table>
-
-    <!-- SEND ALL -->
-    <button class="send-all-btn"
-            data-counter-id="send-all-emails"
-            onclick="sendAllEmails()">
-
-        📧 שלח מייל לכל חברי המועצה
-        <span class="counter-badge"
-              data-counter-for="send-all-emails">0</span>
-
-    </button>
 
     <!-- VIDEO / YOUTUBE SECTION -->
     <div style="margin-top:25px; margin-bottom:25px;">
@@ -829,7 +829,7 @@ ${signature}`;
     ${signature}`;
 
         const subject =
-            `פנייה דחופה בנושא תוכנית כצנלסון`;
+            `פנייה דחופה לראש המועצה בנושא תוכנית כצנלסון`;
 
         const mailLink =
             `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(c.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailMessage)}`;
@@ -870,7 +870,7 @@ function sendAllEmails(){
         contacts.map(c => c.email).join(',');
 
     const subject =
-        `פנייה דחופה בנושא תוכנית כצנלסון`;
+        `פנייה דחופה לראש המועצה בנושא תוכנית כצנלסון`;
 
     const body = `עידו גרינבלום שלום,
 

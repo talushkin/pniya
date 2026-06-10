@@ -1,4 +1,8 @@
 {
-  "pageOpens": 0,
-  "buttonClicks": {}
+  "pageOpens": 7,
+  "buttonClicks": {
+    "video-play-top": 2,
+    "video-play-shmulik": 4,
+    "petition-sign": 1
+  }
 }
