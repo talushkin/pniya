@@ -234,6 +234,127 @@
             font-weight:700;
         }
 
+        .donation-section{
+            margin:28px 0;
+            background:#fff7e6;
+            border:2px solid #ffd89a;
+            border-radius:12px;
+            padding:18px;
+        }
+
+        .donation-title{
+            margin:0 0 10px;
+            color:#b45309;
+            font-size:1.2em;
+        }
+
+        .donation-pay-button{
+            border:0;
+            background:#0d6efd;
+            color:#fff;
+            padding:12px 22px;
+            border-radius:999px;
+            font-weight:700;
+            font-size:1.02em;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            box-shadow:0 2px 8px rgba(0,0,0,0.18);
+        }
+
+        .donation-pay-button:hover{
+            opacity:0.92;
+        }
+
+        .donation-image-wrap{
+            margin:14px 0;
+            display:flex;
+            gap:16px;
+            align-items:center;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+
+        .donation-controls{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:12px;
+        }
+
+        .donation-amount-label{
+            color:#92400e;
+            font-weight:700;
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+            align-items:center;
+        }
+
+        .donation-amount-input{
+            width:140px;
+            padding:10px 14px;
+            border:1px solid #f5c97c;
+            border-radius:999px;
+            text-align:center;
+            font-size:1em;
+            background:#fff;
+            color:#333;
+        }
+
+        .donation-pic{
+            width:300px;
+            height:300px;
+            border-radius:50%;
+            background:#fff;
+            object-fit:cover;
+            object-position:center calc(50% - 30px);
+            display:block;
+            box-shadow:0 2px 10px rgba(0,0,0,0.12);
+            border:2px solid #fff;
+        }
+
+        .donation-counter{
+            margin-top:12px;
+            color:#92400e;
+            font-weight:700;
+            font-size:0.95em;
+        }
+
+        .donation-iframe-wrap{
+            margin-top:16px;
+            border:1px solid #f5c97c;
+            border-radius:12px;
+            overflow:hidden;
+            background:#fff;
+            display:none;
+        }
+
+        .donation-iframe-wrap.is-open{
+            display:block;
+        }
+
+        .donation-iframe-title{
+            margin:0;
+            padding:10px 14px;
+            background:#fff1d6;
+            color:#92400e;
+            font-weight:700;
+            font-size:0.95em;
+        }
+
+        .donation-iframe-amount{
+            margin-right:8px;
+        }
+
+        .donation-iframe{
+            width:100%;
+            min-height:560px;
+            border:0;
+            display:block;
+        }
+
         @media(max-width:700px){
 
             .contact-table{
@@ -306,19 +427,23 @@
     </h2>
 
     <p>
-        עידו גרינבלום שלום,
+        ראש המועצה עידו גרינבלום שלום,
     </p>
 
     <p>
-        אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
+        אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות העירונית בשרת כצנלסון.
     </p>
 
     <p>
-        התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
+        חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור - בדגש מרכזי על התחבורה.
     </p>
 
     <p>
-        אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
+        תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
+    </p>
+
+    <p>
+        אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
     </p>
 
     <!-- CONTACTS -->
@@ -431,7 +556,7 @@
             </h3>
 
             <p style="margin-bottom:15px;">
-                קחו דקה וחצי להאזין לקול השפוי שמביא שמוליק אבוהב,
+                קחו דקה וחצי להאזין לקול השפוי שמביא שמוליק אבואב,
                 שהיה ראש מועצת קריית טבעון במשך 15 שנה.
             </p>
 
@@ -480,23 +605,23 @@
             ">
 
                 <span style="color:#1d4ed8; font-weight:700;">
-                    עידו גרינבלום: רציתי לשאול בהשקפה שלך, בכללי על מדינת ישראל, ספציפית על טבעון, במתח בין לבנות, להתחדש, לייצר, לבין שימור, איפה אתה חושב שאנחנו צריכים למקם את עצמנו?
+                    עידו גרינבלום: "רציתי לשאול בהשקפה שלך, בכללי על מדינת ישראל, ספציפית על טבעון, במתח בין לבנות, להתחדש, לייצר, לבין שימור, איפה אתה חושב שאנחנו צריכים למקם את עצמנו?"
                 </span>
                 <br>
-                <strong>שמואל אבוהאב:</strong>
-                מנהיג ציבורי בטבעון, לעניות דעתי הצנועה, יש לו מחויבות למשמורת שהוא קיבל. הוא קיבל נכס יוצא דופן בנוף האנושי של מדינת ישראל. ולעולם טבעון לא תהיה לא נשר ולא יוקנעם, לא חיפה ולא מטרופולין.
+                <strong>שמואל אבואב:</strong>
+                "מנהיג ציבורי בטבעון, לעניות דעתי הצנועה, יש לו מחויבות למשמורת שהוא קיבל. הוא קיבל נכס יוצא דופן בנוף האנושי של מדינת ישראל. ולעולם טבעון לא תהיה לא נשר ולא יוקנעם, לא חיפה ולא מטרופולין.
 
                 <br><br>
 
-                היא לא צריכה לשוות לעצמה את הצוויון הזה, היא צריכה לשמור על איכויותיה. והאיכויות שלה, זה המאפיינים של הבינוי הקיים היום. אז אתה שואל, אוקיי, השנים עושות את שלהם, בריבות השנים יש בליה ויש התיישנות וצריך לחדש, צריך לחדש על בסיס הקיים.
+                היא לא צריכה לשוות לעצמה את הצביון הזה, היא צריכה לשמור על איכויותיה. והאיכויות שלה, זה המאפיינים של הבינוי הקיים היום. אז אתה שואל, אוקיי, השנים עושות את שלהם, בריבות השנים יש בליה ויש התיישנות וצריך לחדש, צריך לחדש על בסיס הקיים.
 
                 <br><br>
 
-                אסור לעולם שההתחדשות תפרק את הצוויון ואת האיכויות של טבעון. ולכן הגבול עובר בין, קודם כל השמירה על איכות הצוויון והאופי והבנייה של טבעון, והגבול השני, מה בתווך הזה אני יכול לשקם. ולכן אם המחיר הוא בנייה של שמונה קומות, לא עושה את זה.
+                אסור לעולם שההתחדשות תפרק את הצביון ואת האיכויות של טבעון. ולכן הגבול עובר בין, קודם כל השמירה על איכות הצביון והאופי והבנייה של טבעון, והגבול השני, מה בתווך הזה אני יכול לשקם. ולכן אם המחיר הוא בנייה של שמונה קומות, לא עושה את זה.
 
                 <br><br>
 
-                אני שומר על האיכות של טבעון. כך אני הייתי נוהג.
+               אני שומר על האיכות של טבעון. כך אני הייתי נוהג."
 
             </div>
 
@@ -507,6 +632,126 @@
     <div class="quote">
         "לחדש על בסיס הקיים..."
     </div>
+
+        <!-- DONATION -->
+        <div class="donation-section">
+
+         <h3 class="donation-title">
+             תרומה להדפסת 1000 סטיקרים (סה"כ 650 ש"ח)
+         </h3>
+
+         <p>
+             עזרו לנו לממן את הדפסת הסטיקרים לרכב ולהרחיב את החשיפה הציבורית.
+         </p>
+
+         <form name="upayform"
+            action="https://app.upay.co.il/API6/clientsecure/redirectpage.php"
+                method="post"
+                target="donationPayFrame"
+                onsubmit="openDonationFrame()">
+
+             <input type="hidden"
+                 value="ipadtal@gmail.com"
+                 name="email">
+             <input type="hidden"
+                 value="https://pniya.vercel.app/"
+                 name="returnurl">
+             <input type="hidden"
+                 value=""
+                 name="ipnurl">
+             <input type="hidden"
+                 value="עזרה במימון סטיקרים לרכב - צמצום תכנית כצנלסון"
+                 name="paymentdetails">
+             <input type="hidden"
+                 value="1"
+                 name="maxpayments">
+             <input type="hidden"
+                 value="1"
+                 name="livesystem">
+             <input type="hidden"
+                 value=""
+                 name="commissionreduction">
+             <input type="hidden"
+                 value="0"
+                 name="createinvoiceandreceipt">
+             <input type="hidden"
+                 value="0"
+                 name="createinvoice">
+             <input type="hidden"
+                 value="0"
+                 name="createreceipt">
+             <input type="hidden"
+                 value="UPAY"
+                 name="refername">
+             <input type="hidden"
+                 value="HE"
+                 name="lang">
+             <input type="hidden"
+                 value="NIS"
+                 name="currency">
+
+             <div class="donation-image-wrap">
+
+                 <img src="https://raw.githubusercontent.com/talushkin/pniya/refs/heads/main/KATZ.jpeg"
+                     width="300"
+                     height="300"
+                     class="donation-pic"
+                     alt="תמונת תרומה">
+
+                 <div class="donation-controls">
+
+                     <label class="donation-amount-label"
+                         for="donationAmount">
+                         סכום התרומה בש"ח
+                         <input type="number"
+                             id="donationAmount"
+                             class="donation-amount-input"
+                             name="amount"
+                             min="1"
+                             step="1"
+                             value="50"
+                             oninput="updateDonationAmountLabel()"
+                             inputmode="numeric">
+                     </label>
+
+                     <button type="submit"
+                         name="submit"
+                         class="donation-pay-button"
+                         data-counter-id="donation-upay"
+                         aria-label="פתיחת תשלום מאובטח בתוך הדף">
+
+                         לתשלום מאובטח
+
+                     </button>
+
+                 </div>
+
+             </div>
+
+         </form>
+
+         <div id="donationIframeWrap"
+             class="donation-iframe-wrap">
+             <p class="donation-iframe-title">
+                 חלון תשלום פנימי
+                 <span id="donationIframeAmount"
+                     class="donation-iframe-amount">
+                     50 ש"ח
+                 </span>
+             </p>
+             <iframe name="donationPayFrame"
+                 title="תשלום תרומה"
+                 class="donation-iframe">
+             </iframe>
+         </div>
+
+         <div class="donation-counter">
+             לחיצות על כפתור התרומה:
+             <span class="counter-badge"
+                data-counter-for="donation-upay">0</span>
+         </div>
+
+        </div>
 
     <!-- LINKS -->
     <div class="links-section">
@@ -533,7 +778,7 @@
               target="_blank"
               data-counter-id="link-shmulik-facebook">
 
-           שמוליק אבוהב על התוכנית
+           שמוליק אבואב על התוכנית
 
         </a>
           <span class="counter-badge"
@@ -768,13 +1013,15 @@ function updateLinks(){
 
         if(c.messenger){
 
-            const messengerMessage = `עידו גרינבלום שלום,
+            const messengerMessage = `ראש המועצה עידו גרינבלום שלום,
 
-אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות העירונית בשרת כצנלסון.
 
-התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
+חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור -  בדגש מרכזי על התחבורה.
 
-אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
+תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
+
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
 
 בברכה,
 ${signature}`;
@@ -817,16 +1064,18 @@ ${signature}`;
         const tdEmail =
             document.createElement('td');
 
-        const emailMessage = `עידו גרינבלום שלום,
+        const emailMessage = `ראש המועצה עידו גרינבלום שלום,
 
-    אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות העירונית בשרת כצנלסון.
 
-    התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
+חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור -  בדגש מרכזי על התחבורה.
 
-    אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
+תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
 
-    בברכה,
-    ${signature}`;
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
+
+בברכה,
+${signature}`;
 
         const subject =
             `פנייה דחופה לראש המועצה בנושא תוכנית כצנלסון`;
@@ -872,13 +1121,15 @@ function sendAllEmails(){
     const subject =
         `פנייה דחופה לראש המועצה בנושא תוכנית כצנלסון`;
 
-    const body = `עידו גרינבלום שלום,
+    const body = `ראש המועצה עידו גרינבלום שלום,
 
-אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית הפינוי-בינוי בכצנלסון.
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות העירונית בשרת כצנלסון.
 
-התוכנית שאתה מקדם מנותקת מהמקום, משנה את אופיו ואת צביונו של היישוב ופוגעת באמון הציבור.
+חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור -  בדגש מרכזי על התחבורה.
 
-אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019.
+תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
+
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
 
 בברכה,
 ${signature}`;
@@ -957,6 +1208,40 @@ function openTopImageVideo(){
 function trackVideoPlay(counterId){
 
     trackButtonClick(counterId);
+
+}
+
+function openDonationFrame(){
+
+    updateDonationAmountLabel();
+
+    const iframeWrap =
+        document.getElementById('donationIframeWrap');
+
+    if(!iframeWrap){
+        return;
+    }
+
+    iframeWrap.classList.add('is-open');
+
+}
+
+function updateDonationAmountLabel(){
+
+    const amountInput =
+        document.getElementById('donationAmount');
+
+    const amountLabel =
+        document.getElementById('donationIframeAmount');
+
+    if(!amountInput || !amountLabel){
+        return;
+    }
+
+    const amount =
+        amountInput.value.trim() || '0';
+
+    amountLabel.innerText = `${amount} ש"ח`;
 
 }
 
@@ -1043,6 +1328,7 @@ async function startApp(){
     await countPageOpen();
 
     updateLinks();
+    updateDonationAmountLabel();
 
     loadYouTubeApi();
 
