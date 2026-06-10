@@ -1,69 +1,15 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
+
+const {
+    incrementButtonClick,
+    incrementPageOpens,
+    readCounters
+} = require('./lib/counters-store');
 
 const PORT = process.env.PORT || 3000;
 const ROOT_DIR = __dirname;
-const COUNTERS_FILE = path.join(ROOT_DIR, 'COUNTERS.json');
-
-const DEFAULT_COUNTERS = {
-    pageOpens:0,
-    buttonClicks:{}
-};
-
-function ensureCountersFile(){
-
-    if(fs.existsSync(COUNTERS_FILE)){
-        return;
-    }
-
-    fs.writeFileSync(
-        COUNTERS_FILE,
-        JSON.stringify(DEFAULT_COUNTERS, null, 2),
-        'utf8'
-    );
-
-}
-
-function readCounters(){
-
-    ensureCountersFile();
-
-    try{
-
-        const raw = fs.readFileSync(COUNTERS_FILE, 'utf8');
-        const parsed = JSON.parse(raw);
-
-        return {
-            pageOpens:Number(parsed.pageOpens || 0),
-            buttonClicks:parsed.buttonClicks || {}
-        };
-
-    } catch(err){
-
-        fs.writeFileSync(
-            COUNTERS_FILE,
-            JSON.stringify(DEFAULT_COUNTERS, null, 2),
-            'utf8'
-        );
-
-        return {
-            ...DEFAULT_COUNTERS
-        };
-
-    }
-
-}
-
-function writeCounters(counters){
-
-    fs.writeFileSync(
-        COUNTERS_FILE,
-        JSON.stringify(counters, null, 2),
-        'utf8'
-    );
-
-}
+const fs = require('fs');
 
 function respondJson(res, statusCode, data){
 
@@ -147,19 +93,27 @@ const server = http.createServer(async (req, res) => {
 
     if(requestUrl.pathname === '/api/counters' && req.method === 'GET'){
 
-        const counters = readCounters();
-        respondJson(res, 200, counters);
-        return;
+        try{
+            const counters = await readCounters();
+            respondJson(res, 200, counters);
+            return;
+        } catch(err){
+            respondJson(res, 500, { error:err.message });
+            return;
+        }
 
     }
 
     if(requestUrl.pathname === '/api/counters/open' && req.method === 'POST'){
 
-        const counters = readCounters();
-        counters.pageOpens += 1;
-        writeCounters(counters);
-        respondJson(res, 200, counters);
-        return;
+        try{
+            const counters = await incrementPageOpens();
+            respondJson(res, 200, counters);
+            return;
+        } catch(err){
+            respondJson(res, 500, { error:err.message });
+            return;
+        }
 
     }
 
@@ -173,14 +127,14 @@ const server = http.createServer(async (req, res) => {
             return;
         }
 
-        const counters = readCounters();
-
-        counters.buttonClicks[id] =
-            Number(counters.buttonClicks[id] || 0) + 1;
-
-        writeCounters(counters);
-        respondJson(res, 200, counters);
-        return;
+        try{
+            const counters = await incrementButtonClick(id);
+            respondJson(res, 200, counters);
+            return;
+        } catch(err){
+            respondJson(res, 500, { error:err.message });
+            return;
+        }
 
     }
 
