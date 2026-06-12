@@ -1,10 +1,11 @@
 {
-  "pageOpens": 24,
+  "pageOpens": 30,
   "buttonClicks": {
     "video-play-top": 2,
     "video-play-shmulik": 4,
     "petition-sign": 3,
     "messenger-r_moaza@tivon.muni.il": 1,
-    "donation-upay": 8
+    "donation-upay": 8,
+    "donation-total-ils": 55
   }
 }

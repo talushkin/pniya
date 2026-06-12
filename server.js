@@ -2,6 +2,7 @@ const http = require('http');
 const path = require('path');
 
 const {
+    incrementCounterBy,
     incrementButtonClick,
     incrementPageOpens,
     readCounters
@@ -133,6 +134,34 @@ const server = http.createServer(async (req, res) => {
             return;
         } catch(err){
             respondJson(res, 500, { error:err.message });
+            return;
+        }
+
+    }
+
+    if(requestUrl.pathname === '/api/counters/add' && req.method === 'POST'){
+
+        const body = await parseBody(req);
+        const id = typeof body.id === 'string' ? body.id.trim() : '';
+        const amount = Number(body.amount);
+
+        if(!id){
+            respondJson(res, 400, { error:'Missing id' });
+            return;
+        }
+
+        if(!Number.isFinite(amount) || amount <= 0){
+            respondJson(res, 400, { error:'Invalid amount' });
+            return;
+        }
+
+        try{
+            const counters = await incrementCounterBy(id, amount);
+            respondJson(res, 200, counters);
+            return;
+        } catch(err){
+            const statusCode = err.code === 'INVALID_AMOUNT' ? 400 : 500;
+            respondJson(res, statusCode, { error:err.message });
             return;
         }
 
