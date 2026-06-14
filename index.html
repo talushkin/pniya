@@ -259,6 +259,13 @@
             background:#0084ff;
         }
 
+        .btn-copy{
+            background:#6c757d;
+            border:none;
+            cursor:pointer;
+            margin-right:8px;
+        }
+
         .counter-badge{
             display:inline-flex;
             align-items:center;
@@ -471,6 +478,7 @@
                 <th>שם ותפקיד</th>
                 <th>Messenger</th>
                 <th>Email</th>
+                <th>העתקת טקסט</th>
             </tr>
         </thead>
 
@@ -877,20 +885,10 @@ function updateLinks(){
         const tdMessenger =
             document.createElement('td');
 
+        const messageText =
+            buildContactMessage(signature);
+
         if(c.messenger){
-
-            const messengerMessage = `ראש המועצה עידו גרינבלום שלום,
-
-אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות בשרת כצנלסון.
-
-חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור -  בדגש מרכזי על התחבורה.
-
-תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
-
-אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
-
-בברכה,
-${signature}`;
 
             const messengerLink =
                 document.createElement('a');
@@ -902,7 +900,7 @@ ${signature}`;
             messengerLink.className = 'action-btn btn-messenger';
             messengerLink.innerText = '💬 Messenger';
             messengerLink.addEventListener('click', () => {
-                copyMessengerText(messengerMessage);
+                copyMessageText(messageText);
             });
 
             tdMessenger.appendChild(messengerLink);
@@ -930,39 +928,63 @@ ${signature}`;
         const tdEmail =
             document.createElement('td');
 
-        const emailMessage = `ראש המועצה עידו גרינבלום שלום,
-
-אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות בשרת כצנלסון.
-
-חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור -  בדגש מרכזי על התחבורה.
-
-תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
-
-אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
-
-בברכה,
-${signature}`;
-
         const subject =
             `פנייה דחופה לראש המועצה בנושא תוכנית כצנלסון`;
 
         const mailLink =
-            `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(c.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailMessage)}`;
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(c.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(messageText)}`;
 
-        tdEmail.innerHTML = `
-            <a href="${mailLink}"
-               target="_blank"
-                    data-counter-id="email-${c.email}"
-               class="action-btn btn-email">
+        const emailLink =
+            document.createElement('a');
 
-               Email
+        emailLink.href = mailLink;
+        emailLink.target = '_blank';
+        emailLink.dataset.counterId =
+            `email-${c.email}`;
+        emailLink.className = 'action-btn btn-email';
+        emailLink.innerText = 'Email';
 
-            </a>
-                <span class="counter-badge"
-                        data-counter-for="email-${c.email}">0</span>
-        `;
+        const emailBadge =
+            document.createElement('span');
+
+        emailBadge.className = 'counter-badge';
+        emailBadge.dataset.counterFor =
+            `email-${c.email}`;
+        emailBadge.innerText = '0';
+
+        tdEmail.appendChild(emailLink);
+        tdEmail.appendChild(emailBadge);
 
         tr.appendChild(tdEmail);
+
+        // COPY MESSAGE
+        const tdCopy =
+            document.createElement('td');
+
+        const copyButton =
+            document.createElement('button');
+
+        copyButton.type = 'button';
+        copyButton.className = 'action-btn btn-copy';
+        copyButton.dataset.counterId =
+            `copy-message-${c.email}`;
+        copyButton.innerText = 'העתקת טקסט';
+        copyButton.addEventListener('click', () => {
+            copyMessageText(messageText);
+        });
+
+        const copyBadge =
+            document.createElement('span');
+
+        copyBadge.className = 'counter-badge';
+        copyBadge.dataset.counterFor =
+            `copy-message-${c.email}`;
+        copyBadge.innerText = '0';
+
+        tdCopy.appendChild(copyButton);
+        tdCopy.appendChild(copyBadge);
+
+        tr.appendChild(tdCopy);
 
         tbody.appendChild(tr);
 
@@ -1007,10 +1029,27 @@ ${signature}`;
 
 }
 
-function copyMessengerText(text){
+function buildContactMessage(signature){
+
+    return `ראש המועצה עידו גרינבלום שלום,
+
+אני פונה אליך כתושב/ת קריית טבעון בנוגע לתוכנית ההתחדשות בשרת כצנלסון.
+
+חלופת תוכנית הפינוי-בינוי שאתה מקדם תפגע במתחם כצנלסון ובכל קריית עמל מבחינה חברתית, עומס יחידות דיור, וכן כל תשתיות הציבור -  בדגש מרכזי על התחבורה.
+
+תכנית הפינוי-בינוי מפרה כלל משמעותי עליו הקפידו ראשי המועצה לאורך כל שנות קיומה של ק. טבעון, לפיו גובה הבתים לא יחרוג מגובה צמרות האלונים. בניית מבנים בני 8-9 קומות בהתאם לתכנית תפגע באופן בלתי הפיך באופי וצביון הישוב המוגדר כ "קריה בצל אלונים", והיא מייצרת תקדים לפגיעה נוספת בעתיד.
+
+אבקש ממך לעצור את קידום התוכנית, ליצור הידברות משמעותית עם תושבי היישוב כולו בנושא, ולפעול להתחדשות בנייני השיכון ברוח תוכנית המתאר הכוללנית משנת 2019
+
+בברכה,
+${signature}`;
+
+}
+
+function copyMessageText(text){
 
     const successMessage =
-        'הטקסט הועתק ללוח. ניתן להדביק אותו במסנג׳ר.';
+        'הטקסט הועתק ללוח. ניתן להדביק אותו במסנג׳ר או במייל.';
 
     if(navigator.clipboard && window.isSecureContext){
         navigator.clipboard.writeText(text)
