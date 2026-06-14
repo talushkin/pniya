@@ -161,6 +161,49 @@
             text-decoration:none;
         }
 
+        .pdf-link{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            font-weight:700;
+        }
+
+        .pdf-icon{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:30px;
+            height:20px;
+            border-radius:4px;
+            background:#d93025;
+            color:#fff;
+            font-size:0.72em;
+            font-weight:800;
+            line-height:1;
+            letter-spacing:0.4px;
+        }
+
+        .themarker-link-row{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        .themarker-links{
+            display:flex;
+            align-items:center;
+            gap:8px;
+            flex-wrap:wrap;
+        }
+
+        .themarker-thumb{
+            width:110px;
+            border-radius:6px;
+            border:1px solid #d9dde3;
+            display:block;
+        }
+
         .links-section a:hover{
             text-decoration:underline;
         }
@@ -340,6 +383,54 @@
                    placeholder="לא חובה"
                    oninput="updateLinks()">
         </div>
+
+    </div>
+
+    <!-- THEMARKER LINKS -->
+    <div class="links-section">
+
+        <strong>כתבת TheMarker:</strong>
+
+        <br><br>
+
+        📰
+        <span class="themarker-link-row">
+
+            <img
+                src="themarker.png"
+                alt="תמונת כתבת TheMarker"
+                class="themarker-thumb">
+
+            <a href="/themarker.pdf"
+                target="_blank"
+                data-counter-id="link-themarker-pdf"
+                class="pdf-link">
+
+                <span class="pdf-icon" aria-hidden="true">PDF</span>
+
+                כתבה מלאה (PDF)
+
+            </a>
+
+            <a href="https://www.themarker.com/weekend/2026-06-12/ty-article-magazine/highlight/0000019e-b589-d02c-afbf-ff8f2b570000?utm_source=App_Share&utm_medium=Whatsapp&utm_campaign=Share"
+                target="_blank"
+                data-counter-id="link-themarker-page">
+
+                עמוד HTML
+
+            </a>
+
+            <span class="themarker-links">
+
+                <span class="counter-badge"
+                    data-counter-for="link-themarker-pdf">0</span>
+
+                <span class="counter-badge"
+                    data-counter-for="link-themarker-page">0</span>
+
+            </span>
+
+        </span>
 
     </div>
 
@@ -581,7 +672,7 @@ const contacts = [
     role:"ראש המועצה",
     phone:"0502220366",
     messenger:"https://www.facebook.com/ido.grinblum",
-    email:"r_moaza@tivon.muni.il",
+    email:"ido@tivon.muni.il",
     green:false
 }
 

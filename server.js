@@ -11,6 +11,7 @@ const {
 const PORT = process.env.PORT || 3000;
 const ROOT_DIR = __dirname;
 const fs = require('fs');
+const fsPromises = fs.promises;
 
 function respondJson(res, statusCode, data){
 
@@ -80,6 +81,31 @@ function safePathFromUrl(urlPath){
     }
 
     return path.join(ROOT_DIR, normalized);
+
+}
+
+async function resolveFilePath(baseFilePath){
+
+    const candidates = [baseFilePath];
+
+    if(!path.extname(baseFilePath)){
+        candidates.push(`${baseFilePath}.html`);
+        candidates.push(path.join(baseFilePath, 'index.html'));
+    }
+
+    for(const candidate of candidates){
+        try{
+            const stat = await fsPromises.stat(candidate);
+
+            if(stat.isFile()){
+                return candidate;
+            }
+        } catch(err){
+            // Try next candidate path.
+        }
+    }
+
+    return null;
 
 }
 
@@ -183,7 +209,14 @@ const server = http.createServer(async (req, res) => {
         filePath = path.join(filePath, 'index.html');
     }
 
-    fs.readFile(filePath, (err, data) => {
+    const resolvedFilePath = await resolveFilePath(filePath);
+
+    if(!resolvedFilePath){
+        respondJson(res, 404, { error:'Not found' });
+        return;
+    }
+
+    fs.readFile(resolvedFilePath, (err, data) => {
 
         if(err){
             respondJson(res, 404, { error:'Not found' });
@@ -191,7 +224,7 @@ const server = http.createServer(async (req, res) => {
         }
 
         res.writeHead(200, {
-            'Content-Type':getContentType(filePath)
+            'Content-Type':getContentType(resolvedFilePath)
         });
         res.end(data);
 
